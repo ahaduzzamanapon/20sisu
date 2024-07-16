@@ -45,19 +45,12 @@
               </div>
               <div class="col-md-12">
                   <div class="form-group col-md-12">
-                    <label>কন্টেন্ট</label>
+                    <label>ফাইল</label>
                     <div><?php echo form_error('userfile'); ?></div>
-                    <textarea id="editor2" name="userfile" class="form-control" width="100%" rows="5"><?= $result->file ?></textarea>
-                    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            CKEDITOR.replace( 'editor2' );
-                        });
-                        setInterval(() => {
-                            $('.cke_notification_close').click();
-                            $('.cke_notification_warning').remove();
-                        }, 300);
-                    </script>
+                    <?php if($result->file!=''){ ?>
+                      <a class="btn btn-primary" href="<?=base_url('uploads/'.$result->file)?>" target="_blank">ফাইল দেখুন </a>
+                    <?php } ?>
+                    <input type="file" name="userfile" class="form-control">
                   </div>
               </div>
             </div>

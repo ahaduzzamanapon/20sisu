@@ -33,25 +33,25 @@ class Sidebar extends Backend_Controller {
         }else{
             $this->form_validation->set_rules('title', 'Title', 'required');
             if ($this->form_validation->run() == true) {
-                // if($_FILES['userfile']['size'] > 0){
-                //     $new_file_name = time().'-'.$_FILES["userfile"]['name'];
-                //     $config['allowed_types']= '*';
-                //     $config['upload_path']  = realpath(APPPATH . '../assets/sidebar');
-                //     $config['file_name']    = $new_file_name;
-                //     $config['max_size']     = 1000000;
-                //     $this->load->library('upload', $config);
-                //     if($this->upload->do_upload()){
-                //        $uploadData = $this->upload->data();
-                //        $uploadedFile = $uploadData['file_name'];
-                //     }else{
-                //         dd($this->upload->display_errors());
-                //     }
-                //  }
+                if($_FILES['userfile']['size'] > 0){
+                    $new_file_name = time().'-'.$_FILES["userfile"]['name'];
+                    $config['allowed_types']= '*';
+                    $config['upload_path']  = realpath(APPPATH . '../assets/sidebar');
+                    $config['file_name']    = $new_file_name;
+                    $config['max_size']     = 1000000;
+                    $this->load->library('upload', $config);
+                    if($this->upload->do_upload()){
+                       $uploadData = $this->upload->data();
+                       $uploadedFile = $uploadData['file_name'];
+                    }else{
+                        dd($this->upload->display_errors());
+                    }
+                 }
                 //dd($_POST);
                 $form_data = array(
                     'title' => $this->input->post('title'),
                     'category' => $this->input->post('category'),
-                    'file' => $this->input->post('userfile'),
+                    'file' => $uploadedFile,
                     'status' => 1,
                     'create_at'=>date('Y-m-d'),
                 );
@@ -77,13 +77,35 @@ class Sidebar extends Backend_Controller {
             $this->form_validation->set_rules('title', 'Title', 'required');
             if ($this->form_validation->run() == true) {
                 $form_data= array();
-                $form_data = array(
-                    'title' => $this->input->post('title'),
-                    'category' => $this->input->post('category'),
-                    'file' => $this->input->post('userfile'),
-                    'status' => 1,
-                    'create_at'=>date('Y-m-d'),
-                );
+
+                if($_FILES['userfile']['size'] > 0){
+                    $new_file_name = time().'-'.$_FILES["userfile"]['name'];
+                    $config['allowed_types']= '*';
+                    $config['upload_path']  = realpath(APPPATH . '../assets/sidebar');
+                    $config['file_name']    = $new_file_name;
+                    $config['max_size']     = 1000000;
+                    $this->load->library('upload', $config);
+                    if($this->upload->do_upload()){
+                       $uploadData = $this->upload->data();
+                       $uploadedFile = $uploadData['file_name'];
+                       $form_data = array(
+                            'title' => $this->input->post('title'),
+                            'category' => $this->input->post('category'),
+                            'file' => $uploadedFile,
+                            'status' => 1,
+                            'create_at'=>date('Y-m-d'),
+                        );
+                    }else{
+                        dd($this->upload->display_errors());
+                    }
+                 }else{
+                    $form_data = array(
+                        'title' => $this->input->post('title'),
+                        'category' => $this->input->post('category'),
+                        'status' => 1,
+                        'create_at'=>date('Y-m-d'),
+                    );
+                 }
                 //dd($form_data);
                 $this->db->where('id', $this->input->post('id'));
                 if($this->db->update('sidebar', $form_data)){

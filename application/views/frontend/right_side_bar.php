@@ -9,9 +9,9 @@
                $data_side_data=$this->db->where('status',0)->where('category',1)->get('sidebar')->result();
                foreach($data_side_data as $row){?>
                <?php if($row->file!=''){?>
-               <li><a href="<?=base_url('index.php/get_file/'.$row->id);?>" target="_blank"><?=$row->title?></a></li>
+               <li><a href="<?=base_url('index.php/get_file/'.$row->file);?>" target="_blank"><?=$row->title?></a></li>
                <?php }else{?>
-               <li><a href="<?=base_url('index.php/get_file/no')?>"><?=$row->title?></a></li>
+               <li><a href="<?=base_url('index.php/under-construction')?>"><?=$row->title?></a></li>
                <?php }
                }
                ?>
@@ -22,16 +22,21 @@
          <h4 class="heading-int" data-id=2>প্রয়োজনীয় আইনসমূহ</h4>
          <div class="pdln" id="marquee4">
             <ul>
-            <?php 
-               $data_side_data=$this->db->where('status',0)->where('category',2)->get('sidebar')->result();
-               foreach($data_side_data as $row){?>
-               <?php if($row->file!=''){?>
-               <li><a href="<?=base_url('index.php/get_file/'.$row->id);?>" target="_blank"><?=$row->title?></a></li>
-               <?php }else{?>
-               <li><a href="<?=base_url('index.php/get_file/no')?>"><?=$row->title?></a></li>
-               <?php }
-               }
-               ?>
+            <div id="demo">
+                  <!-- <li><a href="<?=base_url('index.php/law-child-dc-center-law')?>">  শিশু দিবাযত্ন কেন্দ্র আইন, ২০২১ (প্রস্তাবিত)</a></li>  
+                  <li><a href="<?=base_url('index.php/law-child-care-law')?>">  শিশুর প্রারম্ভিক যত্ন ও বিকাশের সমন্বিত নীতি-২০১৩</a></li>  -->
+                  <?php 
+                  $data_side_data=$this->db->where('status',0)->where('category',2)->get('sidebar')->result();
+                  foreach($data_side_data as $row){?>
+                     <?php if($row->file!=''){?>
+                     <li><a href="<?=base_url('index.php/get_file/'.$row->file);?>" target="_blank"><?=$row->title?></a></li>
+                     <?php }else{?>
+                     <li><a href="<?=base_url('index.php/under-construction')?>"><?=$row->title?></a></li>
+                     <?php }
+                     }
+                     ?>
+                  <li><a href="<?=base_url('index.php/child-law')?>"> অন্যান্য</a></li>
+            </div>
             </ul>
          </div>
       </div>
@@ -40,38 +45,43 @@
          <div class="pdln" id="marquee4">
             <ul>
             <?php 
-               $data_side_data=$this->db->where('status',0)->where('category',3)->get('sidebar')->result();
-               foreach($data_side_data as $row){?>
-               <?php if($row->file!=''){?>
-               <li><a href="<?=base_url('index.php/get_file/'.$row->id);?>" target="_blank"><?=$row->title?></a></li>
-               <?php }else{?>
-               <li><a href="<?=base_url('index.php/get_file/no')?>"><?=$row->title?></a></li>
-               <?php }
-               }
-               ?>
+                     $data_side_data=$this->db->where('status',0)->where('category',3)->get('sidebar')->result();
+                     foreach($data_side_data as $row){?>
+                        <?php if($row->file!=''){?>
+                        <li><a href="<?=base_url('index.php/get_file/'.$row->file);?>" target="_blank"><?=$row->title?></a></li>
+                        <?php }else{?>
+                        <li><a href="<?=base_url('index.php/under-construction')?>"><?=$row->title?></a></li>
+                        <?php }
+                        }
+                        ?>
+               <li><a href="<?=base_url('index.php/questions');?>">জরিপ প্রশ্নমালা</a></li> 
+               <li><a href="<?=base_url('index.php/general-question');?>">সাধারণ প্রশ্নাবলী</a></li>   
             </ul>
          </div>
       </div>
 
 <!-- Third menu -->
 
-      <div class="noticeslider mrt5">
-         <h4 class="heading-int">শিশু দিবাযত্ন কেন্দ্রসমূহ</h4>
-         <div class="pdln" id="marquee4">
-            <ul>
-            <?php 
+<div class="noticeslider mrt5">
+   <h4 class="heading-int">শিশু দিবাযত্ন কেন্দ্রসমূহ</h4>
+   <div class="pdln" id="marquee4">
+      <ul>
+      <?php 
                $data_side_data=$this->db->where('status',0)->where('category',4)->get('sidebar')->result();
                foreach($data_side_data as $row){?>
-               <?php if($row->file!=''){?>
-               <li><a href="<?=base_url('index.php/get_file/'.$row->id);?>" target="_blank"><?=$row->title?></a></li>
-               <?php }else{?>
-               <li><a href="<?=base_url('index.php/get_file/no')?>"><?=$row->title?></a></li>
-               <?php }
-               }
-               ?>
-            </ul>
-         </div>
-      </div>
+                  <?php if($row->file!=''){?>
+                  <li><a href="<?=base_url('index.php/get_file/'.$row->file);?>" target="_blank"><?=$row->title?></a></li>
+                  <?php }else{?>
+                  <li><a href="<?=base_url('index.php/under-construction')?>"><?=$row->title?></a></li>
+                  <?php }
+                  }
+                  ?>
+         <li><a href="<?=base_url('index.php/day-care-centers')?>">প্রকল্পের আওতাধীন শিশু দিবাযত্ন কেন্দ্রসমূহ</a></li>
+         <li style = "line-height: 20px;"><a href="<?=base_url('index.php/day-care-centers-under-mohila')?>">মহিলা বিষয়ক অধিদপ্তরের আওতাধীন শিশু দিবাযত্ন কেন্দ্রসমূহ</a></li>
+         <li style = "line-height: 20px;"><a href="<?=base_url('index.php/day-care-centers-national-under-mohila')?>">জাতীয় মহিলা সংস্থার আওতাধীন শিশু দিবাযত্ন কেন্দ্রসমূহ</a></li>
+      </ul>
+   </div>
+</div>
 
 <!-- 
 <div class="noticeslider mrt5">

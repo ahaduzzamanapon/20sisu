@@ -43,7 +43,7 @@ class Notice extends Backend_Controller {
                     $config['allowed_types']= 'pdf';
                     $config['upload_path']  = realpath(APPPATH . '../assets/notice');
                     $config['file_name']    = $new_file_name;
-                    $config['max_size']     = 1000;
+                    $config['max_size']     = 0;
                     $this->load->library('upload', $config);
                     if($this->upload->do_upload()){
                        $uploadData = $this->upload->data();

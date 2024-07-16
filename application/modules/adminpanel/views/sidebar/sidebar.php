@@ -36,7 +36,7 @@
                   <th>ক্রম </th>
                   <th>নাম</th>
                   <th>ক্যাটাগরি</th>
-                  <th>কন্টেন্ট</th>
+                  <th>ফাইল</th>
                   <th>স্ট্যাটাস</th>
                   <th>তারিখ</th>
                   <th>অ্যাকশন</th>
@@ -52,7 +52,7 @@
                 <td><?php echo eng2bng($sl); ?></td>
                 <td><?php echo htmlspecialchars($user->title,ENT_QUOTES,'UTF-8');?></td>
                 <td><?php echo htmlspecialchars($user->category,ENT_QUOTES,'UTF-8');?></td>
-                <td><?php echo $user->file?></td>
+                <td><a href="<?=base_url('uploads/'.$user->file)?>"> ফাইল দেখুন</a></td>
                 <td>
                   <?php echo ($user->status==0) ? anchor("index.php/adminpanel/sidebar/deactivate/".$user->id, 'এক্টিভ' , array('class' => 'btn btn-warning btn-flat btn-xs')) : anchor("index.php/adminpanel/sidebar/activate/". $user->id, 'ইনএক্টিভ' , array('class' => 'btn btn-danger btn-flat btn-xs'));?>
                 </td>

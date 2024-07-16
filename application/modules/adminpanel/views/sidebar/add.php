@@ -45,19 +45,9 @@
               </div>
               <div class="col-md-12">
                   <div class="form-group col-md-12">
-                    <label>কন্টেন্ট</label>
+                    <label>ফাইল</label>
                     <div><?php echo form_error('userfile'); ?></div>
-                    <textarea id="editor2" name="userfile" class="form-control" width="100%" rows="5"></textarea>
-                    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
-                    <script>
-                        $(document).ready(function() {
-                            CKEDITOR.replace( 'editor2' );
-                        });
-                        setInterval(() => {
-                            $('.cke_notification_close').click();
-                            $('.cke_notification_warning').remove();
-                        }, 300);
-                    </script>
+                    <input type="file" name="userfile" class="form-control" required>
                   </div>
               </div>
             </div>
