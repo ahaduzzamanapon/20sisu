@@ -48,7 +48,7 @@
                     <label>ফাইল</label>
                     <div><?php echo form_error('userfile'); ?></div>
                     <?php if($result->file!=''){ ?>
-                      <a class="btn btn-primary" href="<?=base_url('uploads/'.$result->file)?>" target="_blank">ফাইল দেখুন </a>
+                      <a class="btn btn-primary" href="<?=base_url('assets/sidebar/'.$result->file)?>" target="_blank">ফাইল দেখুন </a>
                     <?php } ?>
                     <input type="file" name="userfile" class="form-control">
                   </div>

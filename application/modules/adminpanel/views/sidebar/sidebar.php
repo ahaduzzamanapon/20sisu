@@ -52,7 +52,14 @@
                 <td><?php echo eng2bng($sl); ?></td>
                 <td><?php echo htmlspecialchars($user->title,ENT_QUOTES,'UTF-8');?></td>
                 <td><?php echo htmlspecialchars($user->category,ENT_QUOTES,'UTF-8');?></td>
-                <td><a href="<?=base_url('uploads/'.$user->file)?>"> ফাইল দেখুন</a></td>
+                <td>
+                  <?php if(empty($user->file)){
+                    echo 'ফাইল নেই';
+                  }else{?>
+                  <a href="<?=base_url('assets/sidebar/'.$user->file)?>"> ফাইল দেখুন</a>
+                  <?php
+                  } ?>
+                </td>
                 <td>
                   <?php echo ($user->status==0) ? anchor("index.php/adminpanel/sidebar/deactivate/".$user->id, 'এক্টিভ' , array('class' => 'btn btn-warning btn-flat btn-xs')) : anchor("index.php/adminpanel/sidebar/activate/". $user->id, 'ইনএক্টিভ' , array('class' => 'btn btn-danger btn-flat btn-xs'));?>
                 </td>
