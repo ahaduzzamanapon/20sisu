@@ -128,7 +128,6 @@ ul li ul li {
                               <span class="icon-bar"></span>
                            </button>
                         </div>
-
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse navbar-ex1-collapse" >
                            <ul class="nav navbar-nav pull-left">
@@ -160,8 +159,8 @@ ul li ul li {
 
                               <?php if(!$this->ion_auth->logged_in()) { ?>
                               <!-- <li><a href="<?=base_url()?>registration">রেজিস্ট্রেশন</a></li> -->
-                              <li ><a href="<?=base_url()?>index.php/registration">রেজিস্ট্রেশন</a></li>   
-                              <li ><a href="<?=base_url()?>index.php/login">লগইন</a></li>
+                              <!-- <li ><a href="<?=base_url()?>index.php/registration">রেজিস্ট্রেশন</a></li>   
+                              <li ><a href="<?=base_url()?>index.php/login">লগইন</a></li> -->
                               <?php }else{  ?>
                               <!-- <li><a href="<?=base_url()?>my-profile">প্রোফাইল</a></li> -->
                               <li class="remBorder"><a href="<?=base_url()?>index.php/logout" style="border-right:0px;">লগ-আউট</a></li>
